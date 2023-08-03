@@ -1,9 +1,12 @@
-import React from 'react'
+import LoginSignupForm from "../../components/LoginSignupForm";
 
 const SignupPage = () => {
   return (
-    <div>SignupPage</div>
-  )
-}
+    <div>
+      <h2>Signup title</h2>
+      <LoginSignupForm pathname={"/signup"} />
+    </div>
+  );
+};
 
-export default SignupPage
+export default SignupPage;
