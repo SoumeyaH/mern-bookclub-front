@@ -1,9 +1,9 @@
-import React from 'react'
+import { useUserContext } from "../../contexts/UserContext";
 
 const DashboardPage = () => {
-  return (
-    <div>DashboardPage</div>
-  )
+  const { user } = useUserContext();
+
+  return <div>{user.username}'s dashboard</div>;
 }
 
 export default DashboardPage
