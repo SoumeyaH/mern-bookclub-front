@@ -45,8 +45,6 @@ const getUser = async () => {
 
     setSubmitted(true);
 
-    
-
     const response = await getUser();
 
     if (response.username) {
@@ -63,6 +61,8 @@ const getUser = async () => {
       setSubmitted(true);
     } else {
       setSubmitted(false);
+      // TODO fix error handling on backend
+      console.log("ERROR:", error)
       setError(response.message);
     }
   };

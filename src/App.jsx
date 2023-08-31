@@ -4,6 +4,7 @@ import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import DashboardPage from "./pages/Dashboard";
+import CreateBookClubPage from "./pages/CreateBookClub";
 import PageNotFound from "./pages/PageNotFound";
 
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -11,15 +12,19 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 import UserContextProvider from "./contexts/UserContext";
 
 import './App.css'
+import BookClubPage from "./pages/BookClub";
 
 function App() {
-  return (
+ 
+  return ( 
     <div className="App">
       <Router>
         <UserContextProvider>
           <Routes>
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/create-book-club" element={<CreateBookClubPage />} />
+              <Route path="/book-club/:title" element={<BookClubPage />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
