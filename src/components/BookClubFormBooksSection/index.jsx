@@ -1,14 +1,21 @@
  // TODO handle errors instead of items, loading results loader and disable search
 import { useState } from "react"
+import { useLocation } from "react-router-dom";
 
-import { useBookClubContext } from "../../contexts/BookClubContext"
+import  { useBookClubContext }  from "../../contexts/BookClubContext"
+import  { useBookListContext }  from "../../contexts/BookListContext"
 
 import SearchBar from "../SearchBar"
 import ArrayData from "../FormToBeAddedArrayData"
 
 const BookClubFormBooksSection = () => {
 
-  const {booksReading, setBooksReading} =  useBookClubContext()
+  const location = useLocation();
+
+  const contextUsed = location.pathname === "/create-book-club" ? useBookClubContext() : useBookListContext()
+
+
+  const {booksReading, setBooksReading} =  contextUsed
 
   const [searchTerm, setSearchTerm] = useState("")
   const [results, setResults] = useState([]);
@@ -38,6 +45,8 @@ const BookClubFormBooksSection = () => {
     placeholder: "search for book",
     handleSubmit
   }
+
+  // TODO booksreading to something generic
 
   return (
     <div>

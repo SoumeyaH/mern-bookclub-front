@@ -25,6 +25,7 @@ const CreateBookClub = () => {
 
   const postCreatedBookClub = async () => {
 
+    // todo move to utils remove from both submits
     const tidyArrayData = (item) => {
       if (item.length === 0 ) return null
 

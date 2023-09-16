@@ -5,6 +5,7 @@ import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
 import DashboardPage from "./pages/Dashboard";
 import CreateBookClubPage from "./pages/CreateBookClub";
+import CreateBookListPage from "./pages/CreateBookList";
 import PageNotFound from "./pages/PageNotFound";
 
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -24,6 +25,7 @@ function App() {
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/create-book-club" element={<CreateBookClubPage />} />
+              <Route path="/create-book-list" element={<CreateBookListPage />} />
               <Route path="/book-club/:title" element={<BookClubPage />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />

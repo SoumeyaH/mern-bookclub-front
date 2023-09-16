@@ -1,7 +1,14 @@
+import { useLocation } from "react-router-dom";
+
 import  { useBookClubContext }  from "../../contexts/BookClubContext"
+import  { useBookListContext }  from "../../contexts/BookListContext"
 
 const BookClubFormRequiredSection = () => {
   
+  const location = useLocation();
+
+  const contextUsed = location.pathname === "/create-book-club" ? useBookClubContext() : useBookListContext()
+
   const {
     title,
     setTitle,
@@ -9,9 +16,9 @@ const BookClubFormRequiredSection = () => {
     setDescription,
     isPublic,
     setIsPublic
-  } =  useBookClubContext()
+  } =  contextUsed
 
-
+// TODO description input => textarea
   return (
 
        <div>

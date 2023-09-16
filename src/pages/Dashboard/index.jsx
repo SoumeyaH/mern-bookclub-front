@@ -12,6 +12,7 @@ const DashboardPage = () => {
     <div>{user.username}'s dashboard</div>   
 
     <button onClick={() => navigate("/create-book-club")}>create book club</button>
+    <button onClick={() => navigate("/create-book-list")}>create book list</button>
     <LatestBookClubs />
   </div>
 }
