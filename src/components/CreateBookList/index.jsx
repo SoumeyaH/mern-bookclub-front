@@ -34,6 +34,7 @@ const CreateBookList = () => {
     if (title === "" || description === "") throw Error("required fields missing")
  
     const body = JSON.stringify({
+      userId: user.userId,
       title, 
       description, 
       isPublic,
@@ -49,14 +50,10 @@ const CreateBookList = () => {
       body,
     });
 
-    // if (response.status === 200) navigate("/dashboard")
+    if (response.status === 200) navigate("/dashboard")
     
     if (response.status !== 200) throw Error("server error")
     // todo handle errors better
-
-    const data = await response.json();
-
-    console.log("response book list", data)
 
   } catch (err) {
     console.log(err)

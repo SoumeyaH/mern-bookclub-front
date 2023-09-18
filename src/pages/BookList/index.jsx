@@ -1,17 +1,17 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../contexts/UserContext'
 
-const BookClubPage = () => {
+const BookListPage = () => {
     const navigate = useNavigate();
     const location = useLocation()
-    const { bookClub } = location.state
+    const { bookList } = location.state
 
     const { user } = useUserContext()
 
     
     const handleDelete = async () => {
         const response = await fetch(
-            `http://localhost:8080/api/delete-book-club/${bookClub._id}`,
+            `http://localhost:8080/api/delete-book-list/${bookList._id}`,
             {
                 method: "DELETE",
                 headers: {
@@ -25,10 +25,10 @@ const BookClubPage = () => {
         
     }
     
-    // todo check user is admin otherwise hide edit and delete buttons 
+    // todo check users booklist otherwise hide edit and delete buttons 
         return (
             <div>
-        <p>BookClubPage: {bookClub.title}</p>
+        <p>BookListPage: {bookList.title}</p>
         <>
             <button onClick={handleDelete}>delete</button>
         </>
@@ -36,4 +36,4 @@ const BookClubPage = () => {
   )
 }
 
-export default BookClubPage
+export default BookListPage

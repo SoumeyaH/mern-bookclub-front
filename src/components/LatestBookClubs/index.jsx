@@ -9,6 +9,7 @@ const LatestBookClubs = () => {
     const { user } = useUserContext()
 
     const [bookClubs, setBookClubs] = useState([])
+    const [noClubs, setNoClubs] = useState([])
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
@@ -26,33 +27,39 @@ const LatestBookClubs = () => {
     
           const data = await response.json();
 
-          // todo optional chaining on data.success data.error
-          const sortedData = data.success
-            .sort((a, b) => {
-              return (
-                new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-              );
-            })
-            .reverse()
-            .slice(0, 5)
+          if (data) setLoading(false)
 
-          setLoading(false)
-          setBookClubs(sortedData)
+          if (data.unsuccessful) return setNoClubs(true)
+
+          if (data.success) {
+            const sortedData = data.success
+              .sort((a, b) => {
+                return (
+                  new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+                );
+              })
+              .reverse()
+              .slice(0, 5)
+            setBookClubs(sortedData)
+          }
 
         };
         
         fetchData();
     }, [user.token, user.userId]);
-
-    // /book-club/:title
     
-    // todo add loading and switch to uuid on all pages
+    // todo switch to uuid on all pages
   return (
     <div>
         <p>Latest BookClubs</p>
-    {loading ? (
-        <p>loading</p>
-      ) : (
+
+        {
+          loading && <p>loading</p>
+        }
+        {
+          noClubs && <p>noClubs make one</p>
+        }
+    {bookClubs.length !== 0 &&  (
         bookClubs.map((bookClub) => {
           return <Link to={`/book-club/${bookClub.title}`} state={{bookClub: bookClub}} key={bookClub._id}> 
             {bookClub.title}

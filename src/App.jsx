@@ -6,6 +6,8 @@ import SignupPage from "./pages/Signup";
 import DashboardPage from "./pages/Dashboard";
 import CreateBookClubPage from "./pages/CreateBookClub";
 import CreateBookListPage from "./pages/CreateBookList";
+import BookClubPage from "./pages/BookClub";
+import BookListPage from "./pages/BookList";
 import PageNotFound from "./pages/PageNotFound";
 
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -13,7 +15,7 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 import UserContextProvider from "./contexts/UserContext";
 
 import './App.css'
-import BookClubPage from "./pages/BookClub";
+
 
 function App() {
  
@@ -27,6 +29,7 @@ function App() {
               <Route path="/create-book-club" element={<CreateBookClubPage />} />
               <Route path="/create-book-list" element={<CreateBookListPage />} />
               <Route path="/book-club/:title" element={<BookClubPage />} />
+              <Route path="/book-list/:title" element={<BookListPage />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
