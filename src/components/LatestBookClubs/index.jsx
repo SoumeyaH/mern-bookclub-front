@@ -9,7 +9,7 @@ const LatestBookClubs = () => {
     const { user } = useUserContext()
 
     const [bookClubs, setBookClubs] = useState([])
-    const [noClubs, setNoClubs] = useState([])
+    const [noClubs, setNoClubs] = useState(false)
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {

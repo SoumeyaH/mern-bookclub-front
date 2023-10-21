@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import { useUserContext } from "../../contexts/UserContext"
-
+// todo move link to booklist when styling
 import BookList from "../BookList"
 
 const LatestBookLists = () => {
