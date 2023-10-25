@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { useUserContext } from '../../contexts/UserContext'
 
 const BookClubPage = () => {
@@ -30,6 +30,10 @@ const BookClubPage = () => {
             <div>
         <p>BookClubPage: {bookClub.title}</p>
         <>
+            
+            <Link to={`/edit-book-club/${bookClub.title}`} state={{bookClub: bookClub}}>
+                <button>edit</button>
+            </Link>
             <button onClick={handleDelete}>delete</button>
         </>
     </div>
@@ -37,3 +41,4 @@ const BookClubPage = () => {
 }
 
 export default BookClubPage
+

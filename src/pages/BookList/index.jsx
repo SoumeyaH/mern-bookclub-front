@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { useUserContext } from '../../contexts/UserContext'
 
 const BookListPage = () => {
@@ -30,6 +30,9 @@ const BookListPage = () => {
             <div>
         <p>BookListPage: {bookList.title}</p>
         <>
+            <Link to={`/edit-book-list/${bookList.title}`} state={{bookList: bookList}}>
+                <button>edit</button>
+            </Link>
             <button onClick={handleDelete}>delete</button>
         </>
     </div>

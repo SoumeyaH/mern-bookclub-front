@@ -2,10 +2,6 @@ import BookClubContextProvider from "../../contexts/BookClubContext"
 
 import CreateBookClub from "../../components/CreateBookClub"
 
-
-
-
-
 const CreateBookClubPage = () => {
     
   return (

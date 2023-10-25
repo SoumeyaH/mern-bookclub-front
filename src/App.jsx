@@ -9,7 +9,9 @@ import CreateBookListPage from "./pages/CreateBookList";
 import FindBookClubs from "./pages/FindBookClubs";
 import FindBookLists from "./pages/FindBookLists";
 import BookClubPage from "./pages/BookClub";
+import EditBookClub from "./pages/EditBookClub";
 import BookListPage from "./pages/BookList";
+import EditBookList from "./pages/EditBookList";
 import PageNotFound from "./pages/PageNotFound";
 
 import ProtectedRoutes from "./utils/ProtectedRoutes";
@@ -33,7 +35,9 @@ function App() {
               <Route path="/find-book-clubs" element={<FindBookClubs />} />
               <Route path="/find-book-lists" element={<FindBookLists />} />
               <Route path="/book-club/:title" element={<BookClubPage />} />
+              <Route path="/edit-book-club/:title" element={<EditBookClub />} />
               <Route path="/book-list/:title" element={<BookListPage />} />
+              <Route path="/edit-book-list/:title" element={<EditBookList />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />

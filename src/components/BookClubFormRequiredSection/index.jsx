@@ -7,7 +7,7 @@ const BookClubFormRequiredSection = () => {
   
   const location = useLocation();
 
-  const contextUsed = location.pathname === "/create-book-club" ? useBookClubContext() : useBookListContext()
+  const contextUsed = location.pathname.includes("club")  ? useBookClubContext() : useBookListContext()
 
   const {
     title,
